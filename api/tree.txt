@@ -1,0 +1,45 @@
+.
+├── README.md
+├── package-lock.json
+├── package.json
+├── prisma
+│   ├── migrations
+│   │   ├── 20240810120347_init
+│   │   │   └── migration.sql
+│   │   ├── 20240811145852_add_user
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   └── schema.prisma
+├── src
+│   ├── app.module.ts
+│   ├── main.ts
+│   ├── prisma
+│   │   ├── prisma.module.ts
+│   │   └── prisma.service.ts
+│   ├── schema.gql
+│   ├── task
+│   │   ├── dto
+│   │   │   ├── createTask.input.ts
+│   │   │   └── updateTask.input.ts
+│   │   ├── models
+│   │   │   └── task.model.ts
+│   │   ├── task.module.ts
+│   │   ├── task.resolver.ts
+│   │   └── task.service.ts
+│   └── user
+│       ├── dto
+│       │   ├── createUser.input.ts
+│       │   └── getUser.args.ts
+│       ├── models
+│       │   └── user.model.ts
+│       ├── user.module.ts
+│       ├── user.resolver.ts
+│       └── user.service.ts
+├── test
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
+├── tree.txt
+├── tsconfig.build.json
+└── tsconfig.json
+
+2791 directories, 23224 files

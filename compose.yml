@@ -1,0 +1,41 @@
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: ../dockerfile/web.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web:/web
+    tty: true
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./api
+      dockerfile: ../dockerfile/api.Dockerfile
+    ports:
+      - 3001:3000
+      - 5555:5555
+    volumes:
+      - ./api:/api
+    tty: true
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/init.d:/docker-entrypoint-initdb.d
+      - ./db/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: summer
+      POSTGRES_PASSWORD: summer
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+      POSTGRES_DB: summer
+    hostname: postgres
+    restart: always
+    user: root
